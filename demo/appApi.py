@@ -7,7 +7,7 @@ from app_modules.presets import *
 from app_modules.overwrites import *
 
 from flask import Flask, request, jsonify
-
+import argparse
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
@@ -52,4 +52,13 @@ def api_predict():
     return jsonify({"response": response})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    parser = argparse.ArgumentParser(description='List of arguments')
+    parser = argparse.ArgumentParser(description='List of arguments')
+    parser.add_argument('-p','--port', help='Port number', required=False) 
+    args = vars(parser.parse_args())
+    if 'port' in args:
+        portToUse = args['port']
+        print ("ChatGPT flask app running on port :: ", portToUse)
+
+    serve(app, host='0.0.0.0', port=portToUse, threads=8)
+    # app.run(debug=True)
