@@ -107,7 +107,7 @@ def api_predict():
         history = h
         response = status
 
-    return jsonify({"response": response})
+    return jsonify({"response":h})
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='List of arguments')
