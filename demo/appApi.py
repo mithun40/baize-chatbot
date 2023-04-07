@@ -5,6 +5,7 @@ import torch
 from app_modules.utils import *
 from app_modules.presets import *
 from app_modules.overwrites import *
+from waitress import serve
 
 from flask import Flask, request, jsonify
 import argparse
