@@ -82,7 +82,7 @@ def predict(
     except:
         pass
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET'])
 def api_predict():
     text = request.args.get('text')
     if not text:
